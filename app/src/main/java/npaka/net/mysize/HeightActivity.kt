@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.View
 import android.widget.AdapterView
+import android.widget.RadioButton
 import android.widget.SeekBar
 import androidx.core.content.edit
 import kotlinx.android.synthetic.main.activity_height.*
@@ -52,6 +53,11 @@ class HeightActivity : AppCompatActivity() {
 
                 override fun onStopTrackingTouch(seekBar: SeekBar?) {}
             })
+
+        redioGroup.setOnCheckedChangeListener{
+            group, checkedId ->
+                height.text = findViewById<RadioButton>(checkedId).text
+        }
     }
     override fun onPause() {
         super.onPause()
