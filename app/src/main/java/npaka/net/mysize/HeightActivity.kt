@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.RadioButton
 import android.widget.SeekBar
+import android.widget.Spinner
 import androidx.core.content.edit
 import kotlinx.android.synthetic.main.activity_height.*
 
@@ -23,10 +24,10 @@ class HeightActivity : AppCompatActivity() {
                     view: View?,
                     position: Int,
                     id: Long){
-                    val spinner = parent as? Spnner
+                    val spinner = parent as? Spinner
                     val item = spinner?.selectedItem as? String
                     item?.let{
-                        if (it.isNotEmpty())  height.text = it
+                        if (it.isNotEmpty())  heightButton.text = it
                     }
                 }
 
@@ -37,7 +38,7 @@ class HeightActivity : AppCompatActivity() {
             }
         val pref = PreferenceManager.getDefaultSharedPreferences(this)
         val heightVal = pref.getInt("HEIGHT",160)
-        height.text = heightVal.toString()
+        heightButton.text = heightVal.toString()
         seekBar.progress = heightVal
 
         seekBar.setOnSeekBarChangeListener(
@@ -45,7 +46,7 @@ class HeightActivity : AppCompatActivity() {
                 override fun onProgressChanged(seekBar: SeekBar?,
                                                  progress: Int,
                                                  fromUser: Boolean) {
-                    heigth.text = progress.toString()
+                    heightButton.text = progress.toString()
                 }
 
                 override
@@ -54,16 +55,16 @@ class HeightActivity : AppCompatActivity() {
                 override fun onStopTrackingTouch(seekBar: SeekBar?) {}
             })
 
-        redioGroup.setOnCheckedChangeListener{
+        radioGroup.setOnCheckedChangeListener{
             group, checkedId ->
-                height.text = findViewById<RadioButton>(checkedId).text
+                heightButton.text = findViewById<RadioButton>(checkedId).text
         }
     }
     override fun onPause() {
         super.onPause()
         val pref = PreferenceManager.getDefaultSharedPreferences(this)
         pref.edit {
-            putInt("HEIGHT",height.text.toString().toInt())
+            putInt("HEIGHT",heightButton.text.toString().toInt())
         }
     }
 }

@@ -7,7 +7,7 @@
     tools:context=".HeightActivity">
 
     <TextView
-        android:id="@+id/height"
+        android:id="@+id/heightButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -38,7 +38,7 @@
         android:layout_marginTop="32dp"
         android:entries="@array/txt_height_arr"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/height" />
+        app:layout_constraintTop_toBottomOf="@+id/heightButton" />
 
     <SeekBar
         android:id="@+id/seekBar"
@@ -69,19 +69,19 @@
             android:id="@+id/height1"
             android:layout_width="95dp"
             android:layout_height="wrap_content"
-            android:text="@string/heigth" />
+            android:text="@string/heigth1" />
 
         <RadioButton
             android:id="@+id/height2"
             android:layout_width="95dp"
             android:layout_height="wrap_content"
-            android:text="@string/height" />
+            android:text="@string/height2" />
 
         <RadioButton
             android:id="@+id/height3"
             android:layout_width="95dp"
             android:layout_height="wrap_content"
-            android:text="@string/height" />
+            android:text="@string/height3" />
 
         <RadioButton
             android:id="@+id/height4"
