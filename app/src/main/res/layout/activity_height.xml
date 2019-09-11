@@ -71,6 +71,9 @@
             android:layout_height="wrap_content"
             android:text="@string/heigth1" />
 
+
+        
+
         <RadioButton
             android:id="@+id/height2"
             android:layout_width="95dp"
